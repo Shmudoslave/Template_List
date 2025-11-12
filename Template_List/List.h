@@ -112,7 +112,7 @@ public:
 		std::cout << "----------------MinMax----------------\n";
 		item<T>* i;
 		T max = 0;
-		T min = 0;
+		T min = 'z';
 		for (i = head; i != 0; i = i->next)
 		{
 			std::cout << i->value << "\n";
@@ -129,6 +129,12 @@ public:
 		std::cout << "Max = " << max << std::endl;
 		std::cout << "Min = " << min << std::endl;
 		std::cout << "----------------MinMax----------------\n";
+	}
+
+	void sum(T a, T b) 
+	{
+		T c = a + b;
+		std::cout << "Sum = " << c << "\n";
 	}
 	//Другие типы данных: float/double - есть.
 	//Добавить методы: find(T value) sum(), min(), max();
