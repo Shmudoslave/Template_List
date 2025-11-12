@@ -66,13 +66,16 @@ public:
 	}
 	void print() 
 	{
+		std::cout << "--------------------INFO FOR LIST--------------------\n";
 		std::cout << "Values: \n";
 		item<T>* i;
 		for (i = head; i != 0; i = i->next)
 		{
 			std::cout << "{" << i->value << "}" << " ";
 		}
+		std::cout << "\n-----------------------------------------------------";
 		std::cout << std::endl;
+
 	}
 	void clear() 
 	{
@@ -83,7 +86,51 @@ public:
 			head = temp;
 		}
 	}
-	//Другие типы данных: float/double
+
+	T* find(T val) 
+	{
+		item<T>* i;
+		for (i = head; i != 0; i = i->next)
+		{
+			if (i ->value == val) 
+			{
+				std::cout << "Value findet: {" << val  << "}" << std::endl;
+				return  &i->value;
+			}
+			if (i == i + 1)
+			{
+				if (i ->value != val) 
+				{
+					std::cout << "value not findet\n";
+				}
+			}
+		}
+	}
+
+	void minMax() 
+	{
+		std::cout << "----------------MinMax----------------\n";
+		item<T>* i;
+		T max = 0;
+		T min = 0;
+		for (i = head; i != 0; i = i->next)
+		{
+			std::cout << i->value << "\n";
+
+			if (i->value >= max) 
+			{
+				max = i->value;
+			}
+			if (i->value <= min) 
+			{
+				min = i->value;
+			}
+		}
+		std::cout << "Max = " << max << std::endl;
+		std::cout << "Min = " << min << std::endl;
+		std::cout << "----------------MinMax----------------\n";
+	}
+	//Другие типы данных: float/double - есть.
 	//Добавить методы: find(T value) sum(), min(), max();
 	//Тип string - <string>; сравнение строк, складывание строк: operator+()
 };
